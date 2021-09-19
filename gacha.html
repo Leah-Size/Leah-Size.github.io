@@ -1,0 +1,283 @@
+ <!DOCTYPE html>
+<html>
+<body>
+
+<script>function rollLeah() {
+
+  function rweights(list, weight)
+    {
+        
+        var total_weight = weight.reduce(function (prev, cur, i, arr) {
+            return prev + cur;
+        });
+        
+        var random_num = Math.floor(Math.random()*(total_weight));//Misc.rrange(0, total_weight);
+        var weight_sum = 0;
+        
+        for (var i = 0; i < list.length; i++) {
+            weight_sum += weight[i];
+            weight_sum = +weight_sum.toFixed(2);
+            
+            if (random_num <= weight_sum) {
+                return list[i];
+            }
+        }
+     
+    }
+	
+  //========
+  var myleahs =  {
+  "leahs": [
+    {
+      "Name": "Generic NPC Leah",
+      "Rarity": 5,
+      "Power": 5,
+      "Size": 3,
+      "Role": "Big",
+      "Cute": 5
+    },
+    {
+      "Name": "All powerful goddes Leah",
+      "Rarity": 5,
+      "Power": 5,
+      "Size": 4,
+      "Role": "Big",
+      "Cute": 5
+    },
+    {
+      "Name": "Awakened Witch Leah",
+      "Rarity": 4,
+      "Power": 5,
+      "Size": 3,
+      "Role": "Big",
+      "Cute": 5
+    },
+    {
+      "Name": "Technomage Leah (Discontinued)",
+      "Rarity": 0,
+      "Power": 5,
+      "Size": 3,
+      "Role": "Switch",
+      "Cute": 5
+    },
+    {
+      "Name": "Succubus Leah",
+      "Rarity": 4,
+      "Power": 4,
+      "Size": 3,
+      "Role": "Big",
+      "Cute": 5
+    },
+    {
+      "Name": "Dark Empress Leah",
+      "Rarity": 3,
+      "Power": 3,
+      "Size": 3,
+      "Role": "Switch",
+      "Cute": 5
+    },
+    {
+      "Name": "Witch Leah",
+      "Rarity": 3,
+      "Power": 3,
+      "Size": 3,
+      "Role": "Switch",
+      "Cute": 5
+    },
+    {
+      "Name": "Giant Leah",
+      "Rarity": 2,
+      "Power": 2,
+      "Size": 4,
+      "Role": "Switch",
+      "Cute": 5
+    },
+    {
+      "Name": "Regular Leah",
+      "Rarity": 1,
+      "Power": 2,
+      "Size": 3,
+      "Role": "Switch",
+      "Cute": 5
+    },
+    {
+      "Name": "Dark Leah",
+      "Rarity": 2,
+      "Power": 3,
+      "Size": 2,
+      "Role": "Small",
+      "Cute": 5
+    },
+    {
+      "Name": "Subby Regular Leah",
+      "Rarity": 1,
+      "Power": 1,
+      "Size": 2,
+      "Role": "Small",
+      "Cute": 5
+    },
+    {
+      "Name": "Fairy Leah",
+      "Rarity": 2,
+      "Power": 1,
+      "Size": 1,
+      "Role": "Small",
+      "Cute": 5
+    },
+    {
+      "Name": "Tiny Leah",
+      "Rarity": 1,
+      "Power": 1,
+      "Size": 1,
+      "Role": "Small",
+      "Cute": 5
+    },
+    {
+      "Name": "A swarm of Tiny Leahs",
+      "Rarity": 1,
+      "Power": 1,
+      "Size": 1,
+      "Role": "Small",
+      "Cute": 5
+    },
+    {
+      "Name": "Newbie Adventurer Leah",
+      "Rarity": 2,
+      "Power": 2,
+      "Size": 3,
+      "Role": "Small",
+      "Cute": 5
+    },
+    {
+      "Name": "Veteran Adventurer Leah",
+      "Rarity": 4,
+      "Power": 4,
+      "Size": 3,
+      "Role": "Switch",
+      "Cute": 5
+    },
+    {
+      "Name": "General Leah",
+      "Rarity": 4,
+      "Power": 2,
+      "Size": 2,
+      "Role": "Small",
+      "Cute": 5
+    },
+    {
+      "Name": "Admiral Leah",
+      "Rarity": 5,
+      "Power": 3,
+      "Size": 5,
+      "Role": "Big",
+      "Cute": 5
+    },
+    {
+      "Name": "Way Parallel Universe Leah",
+      "Rarity": 3,
+      "Power": 1,
+      "Size": 2,
+      "Role": "Small",
+      "Cute": 5
+    },
+    {
+      "Name": "Cool Way Parallel Universe Leah",
+      "Rarity": 3,
+      "Power": 1,
+      "Size": 2,
+      "Role": "Small",
+      "Cute": 5
+    },
+    {
+      "Name": "Buisness Leah",
+      "Rarity": 2,
+      "Power": 2,
+      "Size": 3,
+      "Role": "Switch",
+      "Cute": 5
+    },
+    {
+      "Name": "Wizard Leah",
+      "Rarity": 0,
+      "Power": 4,
+      "Size": 0,
+      "Role": null,
+      "Cute": 5
+    },
+    {
+      "Name": "Soda Drinker Leah",
+      "Rarity": 3,
+      "Power": 2,
+      "Size": 3,
+      "Role": "Switch",
+      "Cute": 5
+    },
+    {
+      "Name": "Nurse Leah",
+      "Rarity": 2,
+      "Power": 1,
+      "Size": 2,
+      "Role": "Small",
+      "Cute": 4
+    },
+    {
+      "Name": "Spy Leah",
+      "Rarity": 2,
+      "Power": 2,
+      "Size": 3,
+      "Role": "Switch",
+      "Cute": 5
+    }
+  ]
+}
+  //========
+  function toStars(num){
+    rstring = "";
+    for(var i = 0; i < num; i++){
+      rstring += "<img src='star.png'> ";
+    }
+    return rstring;
+  }
+
+  var leahsByRarity = [];
+  leahsByRarity.push([]);
+  leahsByRarity.push([]);
+  leahsByRarity.push([]);
+  leahsByRarity.push([]);
+  leahsByRarity.push([]);
+  leahsByRarity.push([]);
+  for(var i = 0; i < myleahs.leahs.length;i++){
+    leahsByRarity[myleahs.leahs[i].Rarity].push(myleahs.leahs[i])
+  }
+
+  var weights =  [0,50,40,30,20,10];
+  var rarities = [0, 1, 2, 3, 4, 5];
+
+  var rarity = rweights(rarities,weights);
+
+  var leahlist = leahsByRarity[rarity];
+  var leah = leahlist[Math.floor(Math.random()*leahlist.length)];
+  
+
+  document.getElementById("namefield").innerHTML = leah.Name+" "+toStars(leah.Rarity);
+  document.getElementById("sizefield").innerHTML = "Size: "+toStars(leah.Size);
+  document.getElementById("powerfield").innerHTML = "Power: "+toStars(leah.Power);
+  document.getElementById("rolefield").innerHTML = "Size role: "+"<span style='font-size:24px'>"+leah.Role+"</span>";
+  document.getElementById("cutefield").innerHTML = "Cuteness: "+toStars(leah.Cute);
+  
+}</script>
+
+<h1>Leah Gacha</h1>
+<p>Press button to get a Leah!</p>
+<button onclick="rollLeah()">Roll Leah</button>
+
+<p id="namefield" style="font-size:24px"></p>
+<p id="sizefield" style="font-size:15px"></p>
+<p id="powerfield" style="font-size:15px"></p>
+<p id="rolefield" style="font-size:15px"></p>
+<p id="cutefield" style="font-size:15px"></p>
+
+
+
+</body>
+</html> 
