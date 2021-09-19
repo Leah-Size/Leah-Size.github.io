@@ -49,7 +49,7 @@ document.getElementById("aminsmall").oninput = function() {
 
 //====================
 
-document.getElementById("bsizemagdisplay").innerHTML = getDisplaySizePrefrence(parseInt(document.getElementById("bsizemag").value));
+/*document.getElementById("bsizemagdisplay").innerHTML = getDisplaySizePrefrence(parseInt(document.getElementById("bsizemag").value));
   document.getElementById("bsizemag").oninput = function() {
       document.getElementById("bsizemagdisplay").innerHTML = getDisplaySizePrefrence(parseInt(this.value));
   }
@@ -73,7 +73,7 @@ document.getElementById("bsizemagdisplay").innerHTML = getDisplaySizePrefrence(p
 document.getElementById("bminsmallresult").innerHTML = getDisplaySize(-1*parseInt(document.getElementById("bminsmall").value));
 document.getElementById("bminsmall").oninput = function() {
     document.getElementById("bminsmallresult").innerHTML = getDisplaySize(-1*parseInt(this.value));
-}
+}*/
 
   
 }
@@ -290,7 +290,7 @@ function getSizeObject(index){
     //=======Get seed and generator======
     var rseedstr = "";
     var aname = document.getElementById("aname").value;
-    var bname = document.getElementById("bname").value;
+    var bname = "";
     rseedstr+=aname+bname;
 
     var today = new Date();
@@ -310,7 +310,7 @@ function getSizeObject(index){
     var awon = false;
     var score = srand()*100;
     var avalue = parseInt(document.getElementById("asizemag").value);
-    var bvalue = parseInt(document.getElementById("bsizemag").value);
+    var bvalue = 5;//parseInt(document.getElementById("bsizemag").value);
     var aodds = 50+(avalue-bvalue)*5
     if(score < aodds){
       awon = true;
@@ -344,7 +344,8 @@ function getSizeObject(index){
     var asizeobj = {a:0,b:0};//0 =  same size, 1 = grow, -1 = shrink
     var rolerandom = srand();
     if(awon){
-      var ddoption = document.getElementById("awinselect").value;
+      asizeobj.a = 1;
+      /*var ddoption = document.getElementById("awinselect").value;
       switch(ddoption){
         case "bshrink":
           asizeobj.b=-1;
@@ -369,9 +370,10 @@ function getSizeObject(index){
           }
         break;
         
-      }
+      }*/
     }else{
-      var ddoption = document.getElementById("bwinselect").value;
+      asizeobj.a = -1;
+      /*var ddoption = document.getElementById("bwinselect").value;
       switch(ddoption){
         case "ashrink":
           asizeobj.a=-1;
@@ -395,7 +397,7 @@ function getSizeObject(index){
             }
           }
         break;  
-      }  
+      }  */
   }
 
   //=======Generate string=====
@@ -482,7 +484,7 @@ function getSizeObject(index){
 
 
 <h1>Size Oracle</h1>
-<p>Enter your names, Role tendancies, and size preferences, and click ask oracle<br>
+<p>Enter your name, Role tendancy, and size preference, and click ask oracle<br>
 When the oracle makes a prediction the prediction is FIXED and will not be changed until the next day (for the given parameters).</p>
 
  <div class="row">
@@ -490,18 +492,21 @@ When the oracle makes a prediction the prediction is FIXED and will not be chang
     Role tendancies: </br>
   <div><input type="range" min="0" max="10" value="5" class="slider" id="asizemag"><br>
   <span id="asizemagdisplay" style="text-align:center;"></span></div><br>
-  When I win <select id="awinselect">
+ <!---- When I win <select id="awinselect">
   <option value="bshrink">My oponent shrinks</option>
   <option value="agrow">I grow</option>
   <option value="both">I grow AND my oponent shrinks</option>
   <option value="random">Random</option>
-</select><br><br>
+</select><br>--><br>
 Max size when big: <input type="range" min="1" max="12" value="12" class="slider" id="amaxbig"> <span id="amaxbigresult">600 feet</span><br>
 Min size when big: <input type="range" min="0" max="11" value="0" class="slider" id="aminbig"> <span id="aminbigresult">600 feet</span><br>
 <br>Max size when small: <input type="range" min="0" max="11" value="0" class="slider" id="amaxsmall"> <span id="amaxsmallresult">600 feet</span><br>
-Min size when small: <input type="range" min="1" max="12" value="12" class="slider" id="aminsmall"> <span id="aminsmallresult">600 feet</span></div>
+Min size when small: <input type="range" min="1" max="12" value="12" class="slider" id="aminsmall"> <span id="aminsmallresult">600 feet</span>
 
-  
+<br><br><div style="text-align: center;"><button onclick="resultPress()">Ask Oracle</button><br>
+  <h1><span id="resulttext"></span></h1></div></div>
+
+  <!----
   <div class="column">Name: <input type="text" id="bname"></br></br>
   Role tendancies:  </br>
   <div><input type="range" min="0" max="10" value="5" class="slider" id="bsizemag"><br>
@@ -516,9 +521,9 @@ Max size when big: <input type="range" min="1" max="12" value="12" class="slider
 Min size when big: <input type="range" min="0" max="11" value="0" class="slider" id="bminbig"> <span id="bminbigresult">600 feet</span><br>
 <br>Max size when small: <input type="range" min="0" max="11" value="0" class="slider" id="bmaxsmall"> <span id="bmaxsmallresult">600 feet</span><br>
 Min size when small: <input type="range" min="1" max="12" value="12" class="slider" id="bminsmall"> <span id="bminsmallresult">600 feet</span></div>
-</div> 
-<br><br><div style="text-align: center;"><button onclick="resultPress()">Ask Oracle</button><br>
-<h1><span id="resulttext"></span></h1></div>
+</div> -->
+
+
 
 
 
